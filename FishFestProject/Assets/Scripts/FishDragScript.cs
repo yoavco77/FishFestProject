@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FishDragScript : MonoBehaviour
 {
-    public Camera cam;
+    Camera cam;
     private bool isMouseDown = false;
     private Vector3 mousePosition;
     private RaycastHit2D hit;
@@ -18,7 +18,6 @@ public class FishDragScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isMouseDown);
         mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetMouseButtonDown(0))
         {

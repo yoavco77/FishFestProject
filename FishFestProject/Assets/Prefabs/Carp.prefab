@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3828114470786035207}
   - component: {fileID: 651639641711264781}
   - component: {fileID: 4785911232486988065}
+  - component: {fileID: -5144438073585116461}
   m_Layer: 0
   m_Name: Carp
   m_TagString: fish
@@ -98,3 +99,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: Carp
+--- !u!114 &-5144438073585116461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3689968216512585160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27850e8f8c8fa340ae5d82bf984895d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
