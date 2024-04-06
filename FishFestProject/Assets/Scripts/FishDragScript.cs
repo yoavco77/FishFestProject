@@ -43,8 +43,6 @@ public class FishDragScript : MonoBehaviour
             transform.position = Vector3.Slerp(transform.position, mouseWorldPos, Time.deltaTime * 30f);
 
 
-            this.GetComponent<Rigidbody2D>().gravityScale = 0;
-            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
     }
 
