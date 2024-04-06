@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FishingScript : MonoBehaviour
 {
-    public List<string> fishTypes = new List<string>();
+    public List<GameObject> fishTypes = new List<GameObject>();
     RaycastHit2D hit;
     Camera cam;
     void Start()
@@ -47,7 +47,7 @@ public class FishingScript : MonoBehaviour
         
         fishTypeIndex = Random.Range(0, fishTypes.Count);
         fish.name = "fish";
-        fish.tag = fishTypes[fishTypeIndex];
+        fish.tag = fishTypes[fishTypeIndex].tag;
         
 
 
