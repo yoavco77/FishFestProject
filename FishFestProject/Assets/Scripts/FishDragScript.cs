@@ -24,7 +24,7 @@ public class FishDragScript : MonoBehaviour
             hit = Physics2D.Raycast(mousePosition, transform.right, 0.5f);
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject.CompareTag("fish"))
+                if (hit.collider.gameObject == gameObject) // fixed bug with multipul objects [checking for object insted of checking for the tag]
                 {
                     isMouseDown = true;
                 }
@@ -41,9 +41,16 @@ public class FishDragScript : MonoBehaviour
             Vector3 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0f;
             transform.position = Vector3.Slerp(transform.position, mouseWorldPos, Time.deltaTime * 30f);
+
+
+            this.GetComponent<Rigidbody2D>().gravityScale = 0;
+            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
-
-
-
     }
+
+    public void Hold()
+    {
+        isMouseDown = true;
+    }
+
 }

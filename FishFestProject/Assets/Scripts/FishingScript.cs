@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class FishingScript : MonoBehaviour
 {
+
+
+   
+
     public List<GameObject> fishTypes = new List<GameObject>();
     RaycastHit2D hit;
     Camera cam;
@@ -47,7 +51,9 @@ public class FishingScript : MonoBehaviour
     public void createFish()
     {
         // create the object
-        Instantiate(fishTypes[Random.Range(0, fishTypes.Count)], transform.position, Quaternion.identity);
+        GameObject NewFish = Instantiate(fishTypes[Random.Range(0, fishTypes.Count)], transform.position, Quaternion.identity);
+
+        NewFish.GetComponent<FishDragScript>().Hold();
     }
 
 }
