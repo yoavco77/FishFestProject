@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1216894669, guid: c3166df49c3c239498acd121a77cb5df, type: 3}
+  m_Sprite: {fileID: 1449877944, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: PufferFish
+  States:
+  - {fileID: 1449877944, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
+  - {fileID: 314876546, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
+  - {fileID: 773174355, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
+  Recepie: []
+  RecepieIndex: 0
 --- !u!114 &5965451539783589132
 MonoBehaviour:
   m_ObjectHideFlags: 0

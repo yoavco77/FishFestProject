@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -254103012, guid: c3166df49c3c239498acd121a77cb5df, type: 3}
+  m_Sprite: {fileID: 1129227617, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +100,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: Carp
+  States:
+  - {fileID: 1129227617, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
+  - {fileID: -342324045, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
+  - {fileID: 313109467, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
+  - {fileID: 878709019, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
+  Recepie: []
+  RecepieIndex: 0
 --- !u!114 &-5144438073585116461
 MonoBehaviour:
   m_ObjectHideFlags: 0

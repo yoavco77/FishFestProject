@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CutScript : ActionScript
+public class SushiScript : ActionScript
 {
     RaycastHit2D hit;
     Camera cam;
@@ -29,11 +29,10 @@ public class CutScript : ActionScript
             hit = Physics2D.Raycast(mousePos, transform.right, 0.01f);
             if (hit.collider != null)
             {
-               Debug.Log("yay");
-                if (hit.collider.gameObject.CompareTag(gameObject.tag))// check if the mouse is on THIS object
+                Debug.Log("yaySushi");
+                if (hit.collider.gameObject == this.gameObject)// check if the mouse is on THIS object
                 {
 
-                    // Call the random fish spawn function    //Guy: "you can use Instantiate insted"
 
                     Invoke(methodToInvoke, delay);
                 }
@@ -43,12 +42,12 @@ public class CutScript : ActionScript
     public override void Act()
     {
         GameObject[] fishs = GameObject.FindGameObjectsWithTag("fish");// find all fish
-        if(fishs.Length != 0)
+        if (fishs.Length != 0)
         {
             GameObject closestFish = fishs[0];// find closest Fish
-            foreach(GameObject GO in fishs)
+            foreach (GameObject GO in fishs)
             {
-                if(Vector3.Distance(this.transform.position, GO.transform.position) < Vector3.Distance(this.transform.position, closestFish.transform.position))
+                if (Vector3.Distance(this.transform.position, GO.transform.position) < Vector3.Distance(this.transform.position, closestFish.transform.position))
                 {
                     closestFish = GO;
                 }
@@ -56,7 +55,7 @@ public class CutScript : ActionScript
 
             FishScript closestFishScript = closestFish.GetComponent<FishScript>();
 
-            if(closestFishScript.Recepie[closestFishScript.RecepieIndex] == this)// do the action only if it needs to be done
+            if (closestFishScript.Recepie[closestFishScript.RecepieIndex] == this)// do the action only if it needs to be done
             {
                 closestFish.GetComponent<FishScript>().RecepieIndex++;// next state
                 closestFish.GetComponent<FishScript>().UpdateSprite();
@@ -66,5 +65,4 @@ public class CutScript : ActionScript
         }
 
     }
-
 }

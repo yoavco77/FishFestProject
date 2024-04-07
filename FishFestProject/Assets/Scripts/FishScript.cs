@@ -16,6 +16,13 @@ public class FishScript : MonoBehaviour
         {
             case "Salmon":
                 Recepie.Add(GameObject.Find("CuttingBoard").GetComponent<CutScript>());
+                Recepie.Add(GameObject.Find("SushiStation").GetComponent<SushiScript>());
+                Recepie.Add(GameObject.Find("PlateStation").GetComponent<PlateScript>());
+                break;
+            case "Carp":
+                Recepie.Add(GameObject.Find("CuttingBoard").GetComponent<CutScript>());
+                Recepie.Add(GameObject.Find("GrillStation").GetComponent<GrillScript>());
+                Recepie.Add(GameObject.Find("PlateStation").GetComponent<PlateScript>());
                 break;
             default:
                 break;

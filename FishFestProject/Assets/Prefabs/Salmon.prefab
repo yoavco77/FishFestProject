@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -813106305, guid: c3166df49c3c239498acd121a77cb5df, type: 3}
+  m_Sprite: {fileID: -708139634, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,8 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: Salmon
   States:
-  - {fileID: -813106305, guid: c3166df49c3c239498acd121a77cb5df, type: 3}
-  - {fileID: -1171680541, guid: c3166df49c3c239498acd121a77cb5df, type: 3}
+  - {fileID: -708139634, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
+  - {fileID: 1827906391, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
+  - {fileID: 993947865, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
+  - {fileID: -1386246665, guid: 334d6a9ee567c1244b95eec6da9dc9af, type: 3}
   Recepie: []
   RecepieIndex: 0
 --- !u!114 &-5080967050378866278
