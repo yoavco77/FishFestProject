@@ -8,11 +8,16 @@ public class FishDragScript : MonoBehaviour
     private bool isMouseDown = false;
     private Vector3 mousePosition;
     private RaycastHit2D hit;
+
+    Rigidbody2D rb2d;
+    public float dragSpeed = 10f;
+    public float floorDrag = 0.9f;
     // Update is called once per frame
 
     private void Start()
     {
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
 
@@ -38,11 +43,19 @@ public class FishDragScript : MonoBehaviour
 
         if (isMouseDown)
         {
-            Vector3 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorldPos.z = 0f;
-            transform.position = Vector3.Slerp(transform.position, mouseWorldPos, Time.deltaTime * 30f);
+            //Vector3 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
+            //mouseWorldPos.z = 0f;
+            //transform.position = Vector3.Slerp(transform.position, mouseWorldPos, Time.deltaTime * 30f);
 
-
+            Vector2 MousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            // get vector from fish to mouse
+            rb2d.velocity = (mousePosition - transform.position) * dragSpeed;
+        }
+        else
+        {
+            // aplly drag
+            // dont make it to slippery 
+            rb2d.velocity *= floorDrag; 
         }
     }
 
