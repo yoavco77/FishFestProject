@@ -8,12 +8,14 @@ public class CutScript : ActionScript
     RaycastHit2D hit;
     SpriteRenderer spriteRenderer;
     Camera cam;
+    SoundScript soundScript;
     public Boolean isOccupied = false;
     public float occupiedTimer = 0f;
     public float occupationDelay = 3f;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        soundScript = GetComponent<SoundScript>();
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
     }
 
@@ -72,7 +74,12 @@ public class CutScript : ActionScript
                 closestFish.GetComponent<FishScript>().RecepieIndex++;// next state
                 closestFish.GetComponent<FishScript>().UpdateSprite();
                 spriteRenderer.color = Color.gray;
+                soundScript.playSound();
                 isOccupied= true;
+            }
+            else if(isOccupied)
+            {
+                soundScript.playSound(1);
             }
 
 

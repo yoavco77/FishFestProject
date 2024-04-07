@@ -8,6 +8,7 @@ public class BinScript : MonoBehaviour
     public Boolean isOpened = false;
     RaycastHit2D hit;
     Camera cam;
+    SoundScript soundScript;
 
     public Sprite openSprite;
     public Sprite closedSprite;
@@ -19,6 +20,7 @@ public class BinScript : MonoBehaviour
     private void Start()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        soundScript = GetComponent<SoundScript>();
     }
 
  
@@ -26,9 +28,20 @@ public class BinScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("fish") & isOpened & !isOccupied)
         {
+            soundScript.playSound();
             Destroy(collision.gameObject);
             isOccupied = true;
             GetComponent<SpriteRenderer>().color = Color.gray;
+        }
+
+
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(isOccupied)
+        {
+            soundScript.playSound(2);
         }
     }
 
@@ -54,14 +67,18 @@ public class BinScript : MonoBehaviour
 
                         if (isOpened)
                         {
+                            soundScript.playSound(1);
                             GetComponent<SpriteRenderer>().sprite = closedSprite;
                             isOpened = false;
                         }
                         else
                         {
+                            soundScript.playSound(1);   
                             GetComponent<SpriteRenderer>().sprite = openSprite;
                             isOpened = true;
                         }
+
+                        
 
                 }
             }

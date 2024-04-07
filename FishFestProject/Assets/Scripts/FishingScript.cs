@@ -9,11 +9,13 @@ public class FishingScript : MonoBehaviour
    
 
     public List<GameObject> fishTypes = new List<GameObject>();
+    SoundScript soundScript;
     RaycastHit2D hit;
     Camera cam;
     void Start()
     {
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        soundScript= GetComponent<SoundScript>();
     }
 
     
@@ -54,6 +56,7 @@ public class FishingScript : MonoBehaviour
         GameObject NewFish = Instantiate(fishTypes[Random.Range(0, fishTypes.Count)], transform.position, Quaternion.identity);
 
         NewFish.GetComponent<FishDragScript>().Hold();
+        soundScript.playSound();
     }
 
 }

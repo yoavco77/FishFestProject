@@ -8,12 +8,14 @@ public class GrillScript : ActionScript
 {
     RaycastHit2D hit;
     Camera cam;
+    SoundScript soundScript;
     SpriteRenderer spriteRenderer;
         public Boolean isOccupied = false;
         public float occupiedTimer = 0f;
         public float occupationDelay = 3f;
     void Start()
     {
+        soundScript = GetComponent<SoundScript>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
     }
@@ -71,8 +73,12 @@ public class GrillScript : ActionScript
                 closestFish.GetComponent<FishScript>().UpdateSprite();
                 spriteRenderer.color = Color.gray;
                 isOccupied = true;
+                soundScript.playSound();
             }
-
+            else if (isOccupied)
+            {
+                soundScript.playSound(1);
+            }
 
         }
 

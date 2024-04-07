@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OrderScript : MonoBehaviour
 {
-
+    private SoundScript soundScript;
     public float OrderChance = 0f;
 
     public float orderDelay = 3f;
@@ -26,6 +26,7 @@ public class OrderScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        soundScript = GetComponent<SoundScript>();
     }
 
     // Update is called once per frame
@@ -51,10 +52,12 @@ public class OrderScript : MonoBehaviour
             if(collision.gameObject.GetComponent<FishScript>().Type == Order.GetComponent<FishScript>().Type && collision.gameObject.GetComponent<FishScript>().RecepieIndex == collision.gameObject.GetComponent<FishScript>().Recepie.Count)
             {
                 Debug.Log("Good");
+                soundScript.playSound();
                 Destroy(collision.gameObject);
             }
             else
             {
+                soundScript.playSound(1);
                 Debug.Log("Bad");
                 Destroy(collision.gameObject);
             }

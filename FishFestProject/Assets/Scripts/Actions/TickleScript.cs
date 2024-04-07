@@ -7,6 +7,7 @@ public class TickleScript : ActionScript
 {
     RaycastHit2D hit;
     Camera cam;
+    SoundScript soundScript;
     SpriteRenderer spriteRenderer;
     public Boolean isOccupied = false;
     public float occupiedTimer = 0f;
@@ -15,7 +16,7 @@ public class TickleScript : ActionScript
     {
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
+        soundScript= GetComponent<SoundScript>();
 
     }
 
@@ -74,7 +75,13 @@ public class TickleScript : ActionScript
                 closestFish.GetComponent<FishScript>().UpdateSprite();
                 isOccupied = true;
                 spriteRenderer.color = Color.gray;
+                soundScript.playSound();
             }
+            else if (isOccupied)
+            {
+                soundScript.playSound(1);
+            }
+
 
 
         }

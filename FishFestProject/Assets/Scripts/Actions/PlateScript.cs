@@ -7,6 +7,7 @@ public class PlateScript : ActionScript
 {
     RaycastHit2D hit;
     Camera cam;
+    SoundScript soundScript;
     SpriteRenderer spriteRenderer;
     public Boolean isOccupied = false;
     public float occupiedTimer = 0f;
@@ -15,6 +16,7 @@ public class PlateScript : ActionScript
     {
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        soundScript= GetComponent<SoundScript>();
     }
 
     // Update is called once per frame
@@ -72,6 +74,11 @@ public class PlateScript : ActionScript
                 closestFish.GetComponent<FishScript>().UpdateSprite();
                 isOccupied = true;
                 spriteRenderer.color = Color.gray;
+                soundScript.playSound();
+            }
+            else if (isOccupied)
+            {
+                soundScript.playSound(1);
             }
 
 
