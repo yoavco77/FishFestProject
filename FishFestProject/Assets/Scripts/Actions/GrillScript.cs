@@ -9,9 +9,9 @@ public class GrillScript : ActionScript
     RaycastHit2D hit;
     Camera cam;
     SpriteRenderer spriteRenderer;
-    public Boolean isOccupied = false;
-    public float occupiedTimer = 0f;
-    public float occupationDelay = 3f;
+        public Boolean isOccupied = false;
+        public float occupiedTimer = 0f;
+        public float occupationDelay = 3f;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
