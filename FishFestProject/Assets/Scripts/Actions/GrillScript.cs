@@ -1,19 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class GrillScript : ActionScript
 {
     RaycastHit2D hit;
     Camera cam;
+    SpriteRenderer spriteRenderer;
+    public Boolean isOccupied = false;
+    public float occupiedTimer = 0f;
+    public float occupationDelay = 3f;
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isOccupied)
+        {
+            occupationTimer();
+        }
         CheckForClick("Act", 0);
     }
 
@@ -54,14 +65,28 @@ public class GrillScript : ActionScript
 
             FishScript closestFishScript = closestFish.GetComponent<FishScript>();
 
-            if (closestFishScript.Recepie[closestFishScript.RecepieIndex] == this)// do the action only if it needs to be done
+            if (closestFishScript.Recepie[closestFishScript.RecepieIndex] == this & !isOccupied)// do the action only if it needs to be done
             {
                 closestFish.GetComponent<FishScript>().RecepieIndex++;// next state
                 closestFish.GetComponent<FishScript>().UpdateSprite();
+                spriteRenderer.color = Color.gray;
+                isOccupied = true;
             }
 
 
         }
 
+    }
+
+    public void occupationTimer()
+    {
+        occupiedTimer += Time.deltaTime;
+
+        if(occupiedTimer > occupationDelay )
+        {
+            isOccupied = false;
+            occupiedTimer = 0f;
+            spriteRenderer.color = Color.white;
+        }
     }
 }
