@@ -24,6 +24,14 @@ public class FishScript : MonoBehaviour
                 Recepie.Add(GameObject.Find("GrillStation").GetComponent<GrillScript>());
                 Recepie.Add(GameObject.Find("PlateStation").GetComponent<PlateScript>());
                 break;
+            case "PufferFish":
+                Recepie.Add(GameObject.Find("TickleStation").GetComponent<TickleScript>());
+                Recepie.Add(GameObject.Find("GrillStation").GetComponent<GrillScript>());
+                Recepie.Add(GameObject.Find("PlateStation").GetComponent<PlateScript>());
+                break;
+            case "BlobFish":
+                Recepie.Add(GameObject.Find("TickleStation").GetComponent<TickleScript>());
+                break;
             default:
                 break;
         }
@@ -31,5 +39,9 @@ public class FishScript : MonoBehaviour
     public void UpdateSprite()
     {
         GetComponent<SpriteRenderer>().sprite = States[RecepieIndex];
+        if(Type == "Salmon" || Type == "Carp")// set smaller hit box
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 }
