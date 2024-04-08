@@ -40,6 +40,7 @@ public class ScreenManager : MonoBehaviour
  
     public void fadeOut()
     {
+        Cursor.visible = true;
         EndGameScreen.SetActive(true);
         elapsedTime1 += Time.deltaTime;
         if (elapsedTime1 <= 1)

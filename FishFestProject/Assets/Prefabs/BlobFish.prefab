@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27850e8f8c8fa340ae5d82bf984895d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMouseDown: 0
   dragSpeed: 10
   floorDrag: 0.99
 --- !u!61 &1135814057164393066

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FishDragScript : MonoBehaviour
 {
     Camera cam;
-    private bool isMouseDown = false;
+    public bool isMouseDown = false;
     private Vector3 mousePosition;
     private RaycastHit2D hit;
 
