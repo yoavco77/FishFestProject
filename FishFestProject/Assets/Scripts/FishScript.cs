@@ -43,5 +43,10 @@ public class FishScript : MonoBehaviour
         {
             GetComponent<BoxCollider2D>().enabled = false;
         }
+
+        if (Type == "PufferFish")// set smaller hit box
+        {
+            GetComponent<CircleCollider2D>().enabled = true;
+        }
     }
 }

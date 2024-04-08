@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class OrderScript : MonoBehaviour
 {
+    public OrdersHandler OH;
+
     private SoundScript soundScript;
     public float OrderChance = 0f;
 
@@ -22,7 +25,7 @@ public class OrderScript : MonoBehaviour
     [Space()]
 
     public GameObject Timer;
-
+    public Transform TimerPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +41,16 @@ public class OrderScript : MonoBehaviour
         OrderTimer();
 
         if (Timer.GetComponent<TimerScript>().endOfTime)
+        {
+            soundScript.playSound(1);
+
+            OH.Money -= Random.Range(3, 5);
+
+            OH.UpdateScore();
+
             DeleteOrder();
+
+        }
 
 
     }
@@ -48,20 +60,30 @@ public class OrderScript : MonoBehaviour
     {
         if (GetComponent<ActivateSctipt>().Active)
         {
+            Debug.Log("GOOG");
+            
             // if the order and collision are the same type he is finished the good
             if(collision.gameObject.GetComponent<FishScript>().Type == Order.GetComponent<FishScript>().Type && collision.gameObject.GetComponent<FishScript>().RecepieIndex == collision.gameObject.GetComponent<FishScript>().Recepie.Count)
             {
-                Debug.Log("Good");
+                
                 soundScript.playSound();
+                OH.Money += Random.Range(3, 5);
                 Destroy(collision.gameObject);
+
+                OH.UpdateScore();
             }
             else
             {
-                soundScript.playSound(1);
-                Debug.Log("Bad");
                 Destroy(collision.gameObject);
-            }
+                soundScript.playSound(1);
+                OH.Money -= Random.Range(3, 5);
+
+                OH.UpdateScore();
+            }// if wrong fish
+
+
             DeleteOrder();
+            
             //GenerateOrder();
         }
     }
@@ -92,16 +114,18 @@ public class OrderScript : MonoBehaviour
         switch (OrderFishScript.Type)
         {
             case "Salmon":
-                Timer =Instantiate(Timer_Salmon);
+                Debug.Log("YAY");
+                Timer = Instantiate(Timer_Salmon, transform.position + new Vector3(0,1), Quaternion.identity);
                 break;
             case "Carp":
-                Timer = Instantiate(Timer_Carp);
+                Debug.Log("YAY");
+                Timer = Instantiate(Timer_Carp, transform.position + new Vector3(0, 1), Quaternion.identity);
                 break;
             case "PufferFish":
-                Timer = Instantiate(Timer_Puff);
+                Timer = Instantiate(Timer_Puff, transform.position + new Vector3(0, 1), Quaternion.identity);
                 break;
             case "BlobFish":
-                Timer = Instantiate(Timer_Blob);
+                Timer = Instantiate(Timer_Blob, new Vector3(1, 1), Quaternion.identity);
                 break;
 
             default:

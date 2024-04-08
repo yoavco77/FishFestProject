@@ -171,7 +171,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8376863639100982803}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d635b1655448e5f4d928f4d523607d69, type: 2}
   m_CullingMode: 0
@@ -195,10 +195,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e6c50b9ccedf4419b78d43c0642a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 10
-  time: 10
+  AnimDuration: 0.5
+  AnimTime: 0.5
+  AnimSpeed: 1
+  Duration: 30
+  time: 30
   endOfTime: 0
   slider: {fileID: 2475861512743844120}
+  OH: {fileID: 0}
+  DifficultyIncrese: 0.5
 --- !u!1 &8769299099396031601
 GameObject:
   m_ObjectHideFlags: 0
